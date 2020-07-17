@@ -1,0 +1,35 @@
+{
+	"name": "amazona",
+	"version": "1.0.0",
+	"description": "An E-commerce template website inspired by amazon.com",
+	"main": "index.js",
+	"scripts": {
+		"start": "cd backend && node server.js",
+		"server": "cd backend && nodemon server.js",
+		"frontend": "npm start --prefix frontend",
+		"dev": "concurrently \"npm run server\" \"npm run frontend\""
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/atarek12/amazona.git"
+	},
+	"keywords": [
+		"ecommerce"
+	],
+	"author": "Ahmed Tarek",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/atarek12/amazona/issues"
+	},
+	"homepage": "https://github.com/atarek12/amazona#readme",
+	"dependencies": {
+		"body-parser": "^1.19.0",
+		"concurrently": "^5.2.0",
+		"dotenv": "^8.2.0",
+		"express": "^4.17.1",
+		"mongoose": "^5.9.24"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.4"
+	}
+}

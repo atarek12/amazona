@@ -1,0 +1,70 @@
+.sticky-header {
+	position: sticky;
+	top: 0;
+}
+
+.header {
+	background-color: #203040;
+	color: #ffffff;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.5rem;
+}
+
+.brand button {
+	font-size: 3rem;
+	padding: 0.5rem;
+	background: none;
+	border: none;
+	color: #ffffff;
+	cursor: pointer;
+	outline: none;
+}
+
+.brand a {
+	color: #ffffff;
+	font-size: 3rem;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.brand a:hover {
+	color: #ff8000;
+}
+
+.header-links a {
+	color: #ffffff;
+	text-decoration: none;
+	padding: 1rem;
+}
+
+.header-links a:hover {
+	color: #ff8000;
+}
+
+.dropdown {
+	display: inline-block;
+	position: relative;
+}
+
+.dropdown-content {
+	position: absolute;
+	display: none;
+	right: -0.5vw;
+	padding: 1rem;
+	list-style-type: none;
+	z-index: 1;
+	background-color: #203040;
+	margin: 0;
+	margin-top: 0.4rem;
+	width: 20vw;
+}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+}
+
+.dropdown-content li {
+	margin-top: 2vh;
+}
