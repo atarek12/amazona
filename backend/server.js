@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv/config');
 const config = require('./config')
+const path = require('path');
 
 const app = express();
 
@@ -24,6 +25,14 @@ mongoose
         useCreateIndex: true,
     }, () => console.log('connected to database'))
     .catch((error) => console.log(error.reason));
+
+// this step for real deployment
+if(process.env.NODE_ENV === 'production'){
+	app.use(express.static(path.join(__dirname, '/../frontend/build')));
+	app.get('*', (req, res) => {
+	res.sendFile(path.join(`${__dirname}/../frontend/build/index.html`));
+});
+}
 
 
 // Deploy the server
