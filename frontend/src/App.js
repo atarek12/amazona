@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 // Components
@@ -20,14 +20,14 @@ import ProfileScreen from './screens/ProfileScreen';
 import OrdersScreen from './screens/OrdersScreen';
 
 
-export default function App() {
 
+export default function App() {
 
   return (
     <BrowserRouter>
-      <div className="grid-container">
+      <div className="grid-container" >
         <Header className="header" />
-        <main className="main">
+        <main className="main" style={{ minHeight: '84vh' }}>
           <div className="content">
             <Route path="/orders" component={OrdersScreen} />
             <Route path="/profile" component={ProfileScreen} />

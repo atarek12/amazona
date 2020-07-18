@@ -1,16 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
+import { pageRefresh } from '../actions/productAction';
 
 import './sidebar.css'
 
 
 export default function Sidebar({ openMenu }) {
 
-
     const closeMenu = () => {
         document.querySelector('.sidebar').classList.remove('open');
         document.querySelector('.overlay').style.display = "none";
     };
+
+    const dispatch = useDispatch()
 
     return (
         <div>
@@ -20,11 +23,11 @@ export default function Sidebar({ openMenu }) {
                 <button className="sidebar-close-button" onClick={closeMenu}> X </button>
 
                 <ul className="categories">
-                    <li>
+                    <li onClick={() => dispatch(pageRefresh(true))} >
                         <Link to="/category/Pants">Pants</Link>
                     </li>
 
-                    <li>
+                    <li onClick={() => dispatch(pageRefresh(false))}>
                         <Link to="/category/Shirts">Shirts</Link>
                     </li>
                 </ul>

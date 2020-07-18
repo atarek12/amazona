@@ -23,11 +23,17 @@
 	},
 	"homepage": "https://github.com/atarek12/amazona#readme",
 	"dependencies": {
+		"aws-sdk": "^2.715.0",
 		"body-parser": "^1.19.0",
 		"concurrently": "^5.2.0",
 		"dotenv": "^8.2.0",
 		"express": "^4.17.1",
-		"mongoose": "^5.9.24"
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^5.9.24",
+		"multer": "^1.4.2",
+		"multer-s3": "^2.9.0",
+		"sweetalert2": "^9.17.0",
+		"sweetalert2-react-content": "^3.0.3"
 	},
 	"devDependencies": {
 		"nodemon": "^2.0.4"

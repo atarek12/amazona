@@ -1,19 +1,33 @@
 import { combineReducers } from 'redux'
 
 // import all reducers
-import postReducer from './postReducer'
+import * as productReducer from './productReducer'
+import * as userReducer from './userReducer'
+import { cartReducer } from './cartReducer'
+import * as orderReducer from './orderReducer'
 
 
 // compine them
 export default combineReducers({
-    todos: postReducer
+
+    refreshPage: productReducer.pageRefreshReducer,
+
+    productList: productReducer.productListReducer,
+    productSave: productReducer.productSaveReducer,
+    productDelete: productReducer.productDeleteReducer,
+    productReviewSave: productReducer.productReviewSaveReducer,
+    productDetails: productReducer.productDetailsReducer,
+
+    cart: cartReducer,
+
+    userSignin: userReducer.userSigninReducer,
+    userRegister: userReducer.userRegisterReducer,
+    userUpdate: userReducer.userUpdateReducer,
+
+    myOrderList: orderReducer.myOrderListReducer,
+    orderCreate: orderReducer.orderCreateReducer,
+    orderDetails: orderReducer.orderDetailsReducer,
+    orderPay: orderReducer.orderPayReducer,
+    orderList: orderReducer.orderListReducer,
+    orderDelete: orderReducer.orderDeleteReducer
 })
-
-
-/*
- step 3
- this is the rootReducer
- in postReducer.js --> it return a state
- but what if we have multible states ?
- we compine them here --> so we can pass them later by currying in our components
- */

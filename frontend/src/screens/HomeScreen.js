@@ -1,27 +1,28 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom';
 import Rating from '../components/Rating'
 import './homeScreen.css'
-import axios from 'axios'
+import { listProducts } from '../actions/productAction';
 
+export default function HomeScreen(props) {
 
-export default function HomeScreen() {
+    const [refresh, setRefresh] = useState(false)
 
-    const [products, setProducts] = useState([]);
+    const refreshState = useSelector(state => state.refreshPage)
+
+    const productList = useSelector(state => state.productList);
+    const { products, loading, error } = productList;
+    const dispatch = useDispatch();
 
     // component did mount
     useEffect(() => {
-        fetchData();
-    }, [])
-
-    // fetch data from server
-    const fetchData = async () => {
-        const { data } = await axios.get('/api/products')
-        setProducts(data.products)
-    }
+        // dispatch an action to fetch all products
+        dispatch(listProducts(props.match.params.id));
+    }, [refreshState])
 
 
-    return (
+    const renderAllProducts = () => (
         <ul className="products">
             {
                 products.map((product) => (
@@ -50,5 +51,10 @@ export default function HomeScreen() {
                 ))
             }
         </ul>
+    )
+
+
+    return (
+        loading ? <div>Loading ...</div> : error ? <div>{error}</div> : <div>{renderAllProducts()}</div>
     )
 }
