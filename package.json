@@ -7,8 +7,8 @@
 		"start": "cd backend && node server.js",
 		"server": "cd backend && nodemon server.js",
 		"frontend": "npm start --prefix frontend",
-		"dev": "concurrently \"npm run server\" \"npm run frontend\""
-		"heroku-postbuild" : "cd frontend && npm install && npm run build"
+		"dev": "concurrently \"npm run server\" \"npm run frontend\"",
+		"heroku-postbuild": "cd frontend && npm install && npm run build"
 	},
 	"repository": {
 		"type": "git",
