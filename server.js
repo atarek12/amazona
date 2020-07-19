@@ -17,7 +17,7 @@ app.use('/api/orders', require('./routes/orderRoutes'));
 //mongooose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => console.log('connected to database'))
 
 // Method 2
-const mongodbUrl = config.MONGODB_URL;
+const mongodbUrl = process.env.DB_CONNECTION || config.MONGODB_URL;
 mongoose
     .connect(mongodbUrl, {
         useNewUrlParser: true,
