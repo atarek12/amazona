@@ -17,25 +17,25 @@ app.use('/api/orders', require('./routes/orderRoutes'));
 //mongooose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true }, () => console.log('connected to database'))
 
 // Method 2
-const mongodbUrl = process.env.DB_CONNECTION;
+const mongodbUrl = config.MONGODB_URL;
 mongoose
     .connect(mongodbUrl, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useCreateIndex: true,
-    }, () => console.log('connected to database'))
+    })
+    .then(() => console.log('MongoDB Connected...'))
     .catch((error) => console.log(error.reason));
 
 // this step for real deployment
-if(process.env.NODE_ENV === 'production'){
-	app.use(express.static(path.join(__dirname, '/frontend/build')));
-	app.get('*', (req, res) => {
-	res.sendFile(path.join(`${__dirname}/frontend/build/index.html`));
-});
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '/frontend/build')));
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(`${__dirname}/frontend/build/index.html`));
+    });
 }
 
 
 // Deploy the server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log('Server is running on port ' + PORT));
-

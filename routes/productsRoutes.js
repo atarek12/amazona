@@ -69,7 +69,7 @@ router.post('/:id/reviews', isAuth, async (req, res) => {
 
 router.put('/:id', isAuth, isAdmin, async (req, res) => {
     const productId = req.params.id;
-    const product = await Product.findById(productId);
+    const product = await Product.findOne({ _id: productId });
     if (product) {
         product.name = req.body.name;
         product.price = req.body.price;
@@ -90,7 +90,7 @@ router.put('/:id', isAuth, isAdmin, async (req, res) => {
 
 
 router.delete('/:id', isAuth, isAdmin, async (req, res) => {
-    const deletedProduct = await Product.findById(req.params.id);
+    const deletedProduct = await Product.findOne({ _id: req.params.id });
     if (deletedProduct) {
         await deletedProduct.remove();
         res.send({ message: 'Product Deleted' });

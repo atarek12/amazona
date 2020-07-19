@@ -1,4 +1,4 @@
-.grid-container {
+/* .grid-container {
 	display: grid;
 	grid-template-areas:
 		'header'
@@ -11,12 +11,12 @@
 .main .content {
 	grid-area: main;
 	height: 85vh !important;
-}
+} */
 
-.header {
+/* .header {
 	grid-area: header;
 }
 
 .footer {
 	grid-area: footer;
-}
+} */
