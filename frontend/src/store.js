@@ -16,7 +16,7 @@ const initialState = { cart: { cartItems, shipping: {}, payment: {} }, userSigni
 
 const middleware = [thunk];
 
-const store = {};
+let store = {};
 
 // if we are in production --> dont compse redux dev tools --> as the app will not work in browser does not have the extention
 if(process.env.NODE_ENV === 'production') {
