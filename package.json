@@ -24,7 +24,7 @@
 	},
 	"homepage": "https://github.com/atarek12/amazona#readme",
 	"dependencies": {
-		"aws-sdk": "^2.715.0",
+		"aws-sdk": "^2.814.0",
 		"body-parser": "^1.19.0",
 		"concurrently": "^5.2.0",
 		"dotenv": "^8.2.0",
